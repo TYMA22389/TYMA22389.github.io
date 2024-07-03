@@ -1,12 +1,12 @@
 body
 {
    background-color: #FFFFFF;
-   background-image: url('https://web.archive.org/web/20090820152530/http://geocities.com/pharaohman_temple/Pharaohman/spacebackround.gif');
+   background-image: url('images/img0001.png');
    background-attachment: scroll;
    background-position: left top;
    background-repeat: repeat;
    color: #000000;
-   font-family: "Comic Sans MS";
+   font-family: Arial;
    font-weight: normal;
    font-size: 16px;
    line-height: 1.1875;
