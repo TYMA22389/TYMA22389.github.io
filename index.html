@@ -7,6 +7,27 @@
 <link href="logo.png" rel="icon" sizes="16x16" type="image/png">
 <link href="Site!!!1!!11.css" rel="stylesheet">
 <link href="index.css" rel="stylesheet">
+<script>
+document.addEventListener('DOMContentLoaded', function(event)
+{
+   var mouseTrackX = 0;
+   var mouseTrackY = 0;
+   document.addEventListener('mousemove', function(e)
+   {
+      if (mouseTrackX == 0) mouseTrackX = e.pageX;
+      if (mouseTrackY == 0) mouseTrackY = e.pageY;
+      var dx = e.pageX - mouseTrackX;
+      var dy = e.pageY - mouseTrackY;
+      var elements = document.querySelectorAll('[data-mousetrack]');
+      Array.prototype.forEach.call(elements, function(el, i)
+      {
+         var x = el.dataset.mousetrack * dx * 0.0025;
+         var y = el.dataset.mousetrack * dy * 0.0025;
+         el.style.transform = "translate(" + x + "px," + y + "px)";
+      });
+   });
+});
+</script>
 </head>
 <body>
 <div id="wb_Image1" style="position:absolute;left:28px;top:23px;width:545px;height:411px;z-index:0;">
@@ -47,10 +68,10 @@
 <a href="http://narodweb.ru"><img src="http://narodweb.ru/img/banner.gif" width="88" height="31" border="0"></a></div>
 <!-- old-web -->
 <div id="Html8" style="position:absolute;left:546px;top:537px;width:100px;height:100px;z-index:15">
-<a href="www.old-web.com" title="Old-web" alt="Old-web"><img src="https://www.old-web.com/images/banners/button.gif" width="88" height="31" border="0"> </a></div>
+<a href="https://old-web.com" title="Old-web" alt="Old-web"><img src="https://www.old-web.com/images/banners/button.gif" width="88" height="31" border="0"> </a></div>
 <div id="wb_Image3" style="position:absolute;left:709px;top:458px;width:58px;height:41px;z-index:16;">
 <img src="images/tomato.gif" id="Image3" alt="" width="58" height="41"></div>
-<div id="wb_Image4" style="position:absolute;left:675px;top:227px;width:92px;height:119px;z-index:17;">
+<div id="wb_Image4" style="position:absolute;left:675px;top:227px;width:92px;height:119px;z-index:17;" data-mousetrack="11">
 <img src="images/weener.gif" id="Image4" alt="" width="92" height="120"></div>
 </body>
 </html>
