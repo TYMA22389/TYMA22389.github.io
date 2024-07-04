@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function(event)
 </script>
 </head>
 <body>
-<div id="wb_Image6" style="position:absolute;left:601px;top:82px;width:235px;height:212px;z-index:0;">
-<img src="images/img0001.png" id="Image6" alt="" width="235" height="213"></div>
-<div id="wb_Image1" style="position:absolute;left:28px;top:23px;width:545px;height:411px;z-index:1;">
+<div id="wb_Image1" style="position:absolute;left:28px;top:23px;width:545px;height:411px;z-index:0;">
 <img src="images/img0001.png" id="Image1" alt="" width="545" height="493"></div>
+<div id="wb_Image6" style="position:absolute;left:601px;top:82px;width:235px;height:212px;z-index:1;">
+<img src="images/img0001.png" id="Image6" alt="" width="235" height="213"></div>
 <div id="wb_Text1" style="position:absolute;left:38px;top:36px;width:250px;height:36px;z-index:2;">
 <span style="color:#000000;font-family:Arial;font-size:16px;">Добро пожаловать на мой сайт!<br>Ответы на вопросы:</span></div>
 <div id="wb_Text2" style="position:absolute;left:38px;top:82px;width:302px;height:36px;z-index:3;">
@@ -81,5 +81,121 @@ document.addEventListener('DOMContentLoaded', function(event)
 <!-- Coments -->
 <div id="Html2" style="position:absolute;left:970px;top:36px;width:100px;height:100px;z-index:21">
 <iframe src="https://coments.ishoutbox.com" width="275" height="570" frameborder="0" valign="middle" allowtransparency="true"></iframe></div>
+<div id="wb_Image7" style="position:absolute;left:0px;top:1310px;width:1362px;height:192px;z-index:22;">
+<img src="images/img0001.png" id="Image7" alt="" width="1362" height="1232"></div>
+<div id="wb_JavaScript2" style="position:absolute;left:11px;top:1332px;width:440px;height:59px;z-index:23;">
+<div style="color:#000000;font-size:16px;font-family:Arial;font-weight:normal;font-style:normal;text-align:left;text-decoration:none" id="copyrightnotice"></div>
+<script>
+   var now = new Date();
+   var startYear = "2013";
+   var text =  "Copyright &copy; ";
+   if (startYear != '')
+   {
+      text = text + startYear + "-";
+   }
+   text = text + now.getFullYear() + ", TYMA223. Все права защищены.";
+   var copyrightnotice = document.getElementById('copyrightnotice');
+   copyrightnotice.innerHTML = text;
+</script>
+
+
+</div>
+<div id="wb_Image8" style="position:absolute;left:741px;top:1322px;width:391px;height:131px;z-index:24;">
+<img src="images/LOGOTYPE.png" id="Image8" alt="" width="391" height="262"></div>
+<div id="wb_JavaScript3" style="position:absolute;left:38px;top:406px;width:358px;height:93px;z-index:25;">
+<div style="color:#000000;font-size:16px;font-family:Arial;font-weight:normal;font-style:normal;text-align:left;text-decoration:none" id="countdown"></div>
+<script>
+var strTargetDate = "10/06/2024 12:00 AM";
+var strFormat = "$DAYS$ Days, $HOURS$ Hours, $MINUTES$ Minutes, $SECONDS$ Seconds.";
+var strExpired = "У автора днюха!!!111";
+
+function doCountDown(seconds) 
+{
+   if (seconds < 0) 
+   {
+      document.getElementById("countdown").innerHTML = strExpired;
+      return;
+   }
+   var strMsg = strFormat;
+   strMsg = strMsg.replace("$DAYS$",    ((Math.floor(seconds/86400))%100000).toString());
+   strMsg = strMsg.replace("$HOURS$",   ((Math.floor(seconds/3600))%24).toString());
+   strMsg = strMsg.replace("$MINUTES$", ((Math.floor(seconds/60))%60).toString());
+   strMsg = strMsg.replace("$SECONDS$",  ((Math.floor(seconds))%60).toString()); 
+
+   document.getElementById("countdown").innerHTML = strMsg;
+
+   setTimeout("doCountDown(" + (seconds-1).toString() + ")", 1000);
+}
+function initCountDown()
+{
+   var dtTarget = new Date(strTargetDate);
+   var dtNow = new Date();
+   var dtDiff = new Date(dtTarget-dtNow);
+   var totalSeconds = Math.floor(dtDiff.valueOf()/1000);
+
+   doCountDown(totalSeconds);
+}
+initCountDown();
+</script>
+
+</div>
+<div id="wb_JavaScript4" style="position:absolute;left:38px;top:374px;width:493px;height:100px;z-index:26;">
+<script>
+document.write("<div style=\"color:#FF4500;font-size:16px;font-family:Arial;font-weight:normal;font-style:normal;text-align:left;text-decoration:none\">Последний раз сайт был обновлен: "+document.lastModified+"<\/div>");
+</script>    </div>
+<div style="z-index:27">
+<div id="infobar" style="padding:4px 4px 4px 4px;position:fixed;z-index:999;left:0px;top:-100px;width:100%;border-bottom:1px solid #000000;background-color:#FFFFFF">
+<a href="javascript:closeInfoBar()"><img src="icon_close.gif" style="width: 14px; height: 14px; float: right; border: 0; margin-right: 5px" /></a>
+<span style="color:#FF4500;font-size:16px;font-family:Arial;font-weight:normal;font-style:normal;text-decoration:none;padding:0px 0;">Сайт в БЕТКЕ</span>
+</div>
+<script>
+function showInfoBar()
+{
+   var infobar = document.getElementById("infobar");
+   var top = parseInt(infobar.style.top);
+   if (top < 0)
+   {
+      top += 5;
+      infobar.style.top = top+"px";
+      setTimeout(function(){showInfoBar()}, 50);
+   }
+   else
+   {
+      if (document.all && !window.XMLHttpRequest)
+         infobar.style.setExpression("top", 'document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px" : body.scrollTop+"px"');
+      else
+         infobar.style.top = 0;
+   }
+}
+function closeInfoBar()
+{
+   document.getElementById("infobar").style.display = "none";
+}
+function initInfoBar()
+{
+   var docWidth = 800;
+
+   if (typeof window.innerWidth != 'undefined')
+   {
+      docWidth = window.innerWidth;
+   }
+   else 
+   if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0)
+   {
+      docWidth = document.documentElement.clientWidth;
+   }
+   else
+   {
+      docWidth = document.getElementsByTagName('body')[0].clientWidth;
+   }
+  // document.getElementById("infobar").style.width = "100%";
+
+   var height = parseInt(document.getElementById("infobar").offsetHeight);
+   document.getElementById("infobar").style.top = height*(-1)+"px";
+   
+   showInfoBar();
+}
+initInfoBar();
+</script></div>
 </body>
 </html>
